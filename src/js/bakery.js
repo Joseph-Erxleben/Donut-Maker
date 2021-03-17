@@ -29,9 +29,14 @@ class Bakery {
     }
 
     addMultiplier(){
-        this._multiplier += 1;
-        this._donuts -= this._multiplierCost;
-        this._multiplierCost *= 1.1;
+        if(this._donuts >= this._multiplierCost){
+            this._multiplier += 1;
+            this._donuts -= this._multiplierCost;
+            this._multiplierCost *= 1.1;
+        }
+        else{
+            
+        }
     }
 
     getAutoClicker() {
