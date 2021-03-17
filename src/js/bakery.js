@@ -15,9 +15,15 @@ class Bakery {
     }
 
     addAutoClicker() {
-        this._autoClicker += 1;
-        this._donuts -= this._autoClickerCost;
-        this._autoClickerCost *= 1.1;
+        if (this._donuts >= this._autoClickerCost){
+            this._autoClicker += 1;
+            this._donuts -= this._autoClickerCost;
+            this._autoClickerCost *= 1.1;
+        }
+        else{
+            
+        }
+
     }
 
     getAutoClicker() {
