@@ -9,7 +9,7 @@ class Bakery {
     }
 
     bake () {
-        this._donuts += 1;
+        this._donuts += 1.2**this._multiplier;
     }
 
     getDonut() {
@@ -35,7 +35,7 @@ class Bakery {
             this._multiplierCost *= 1.1;
         }
         else{
-            
+
         }
     }
 
