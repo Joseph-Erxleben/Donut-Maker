@@ -3,19 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/src/css/style.css">
     <title>Module 4 Project</title>
 </head>
 <body>
     <div class="container">
+        <header>
+            <div class="dropdown">
+                <button onclick="dropdownMenu()" class="dropbtn">Dropdown</button>
+                <div id="myDropdown" class="dropdown-content">
+                    <a href="https://en.wikipedia.org/wiki/Fred_the_Baker">About Fred the Baker Baking Company</a>
+                    <a href="#">Link 2</a>
+                    <a href="#">Link 3</a>
+                </div>
+              </div>
+        </header>
         <main>
             <section class = "donut">
-                <button class="donut__button">Bake!</button> <div class="donut__counter"></div>
+                <button class="donut__button">Bake a Donut!!</button> <div class="donut__counter"></div>
             </section>
             <section class = "multiplier">
                 <button class="multiplier__button">Become a Better Baker!</button> <div class="multiplier__counter"></div>
             </section>
             <section class = "autoClicker">
-                <button class="autoClicker__button">Hire a Baker!</button> <div class="autoClicker__counter"></div>
+                <button class="autoClicker__button">Hire an Assistant Baker!</button> <div class="autoClicker__counter"></div>
             </section>
         </main>
     </div>
