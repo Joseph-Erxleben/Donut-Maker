@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="/src/css/style.css">
     <title>Module 4 Project</title>
 </head>
@@ -10,15 +11,23 @@
     <div class="container">
         <header>
             <div class="dropdown">
-                <button onclick="dropdownMenu()" class="dropbtn">Dropdown</button>
+                <button onclick="dropdownMenu()" class="dropbtn">Menu</button>
                 <div id="myDropdown" class="dropdown-content">
                     <a href="https://en.wikipedia.org/wiki/Fred_the_Baker" target="_blank">About Fred the Baker Baking Company</a>
                     <a href="https://orteil.dashnet.org/cookieclicker/" target="_blank"">Play the game that inspired us!</a>
-                    <a href="#">Link 3</a>
+                    <button onclick="document.getElementById('id01').style.display='block'"class="w3-button">About the Developer</button>
                 </div>
               </div>
         </header>
         <main>
+            <div id="id01" class="w3-modal">
+                <div class="w3-modal-content">
+                  <div class="w3-container">
+                    <span onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-display-topright">&times;</span>
+                    <p>Hi! I'm Joe. When I started college my first semster of engineering was primarily coding. I found that I really enjoyed coding, and when engineering didn't work out and I entered the workforce that stuck with me. As a machinist I was asked to take over programing the robotic arms they used to load and unload machines, and it finally occured to me that I could make a career out of this. I consulted with friends that had gone through coding bootcamps and entered the field, and once I had saved up enough to make the switch I started at We Can Code it. And now I'm making clicker games. Dream come true?</p>
+                  </div>
+                </div>
+              </div>
             <section class = "donut">
                 <button class="donut__button">Bake a Donut!!</button> <div class="donut__counter"></div>
             </section>
@@ -26,7 +35,7 @@
                 <button class="multiplier__button">Become a Better Baker!</button> <div class="multiplier__counter"></div>
             </section>
             <section class = "autoClicker">
-                <button class="autoClicker__button">Hire an Assistant Baker!</button> <div class="autoClicker__counter"></div>
+                <button class="autoClicker__button">Hire a Baker!</button> <div class="autoClicker__counter"></div>
             </section>
         </main>
     </div>
