@@ -1,12 +1,12 @@
 //index links
 
-const donutCounterElement = document.querySelector('.hud__donutCounter');
-const autoClickerCounterElement = document.querySelector('.hud__autoClickerCounter');
-const multiplierCounterElement = document.querySelector('.hud__multiplierCounter');
+const donutCounterElement = document.querySelector('.donut__counter');
+const autoClickerCounterElement = document.querySelector('.autoClicker__counter');
+const multiplierCounterElement = document.querySelector('.multiplier__counter');
 
-const ovenButton = document.querySelector('.input__oven');
-const autoClickerButton = document.querySelector('.input__autoClicker');
-const multiplierButton = document.querySelector('.input__multiplier');
+const donutButton = document.querySelector('.donut__button');
+const autoClickerButton = document.querySelector('.autoClicker__button');
+const multiplierButton = document.querySelector('.multiplier__button');
 
 //updates
 
@@ -24,8 +24,8 @@ const updateMultiplierCounter = function(multiplierCounterElement, bakery){
 
 //buttons
 
-const makeButtonIntoOven = (oven, donutCounter, bakery) =>{
-    oven.addEventListener('click', ()=>{
+const makeButtonIntoDonut = (donutButton, donutCounter, bakery) =>{
+    donutButton.addEventListener('click', ()=>{
         bakery.bake();
         updateDonutCounter(donutCounter, bakery);
     })
@@ -51,7 +51,7 @@ const makeButtonIntoMultiplier = (multiplier, donutCounter, multiplierCounter, b
 
 const appBakery = new Bakery();
 
-makeButtonIntoOven(ovenButton, donutCounterElement, appBakery);
+makeButtonIntoDonut(donutButton, donutCounterElement, appBakery);
 makeButtonIntoAutoClicker(autoClickerButton, donutCounterElement, autoClickerCounterElement, appBakery);
 makeButtonIntoMultiplier(multiplierButton, donutCounterElement, multiplierCounterElement, appBakery);
 
