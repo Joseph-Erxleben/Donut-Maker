@@ -9,7 +9,7 @@ class Bakery {
         this._donuts += 1;
     }
 
-    getDonuts() {
+    getDonut() {
         return this._donuts;
     }
 }

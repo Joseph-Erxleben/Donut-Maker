@@ -13,6 +13,6 @@ const makeButtonIntoOven = (oven, donutCounter, bakery) =>{
     })
 }
 
-const appBakery = new bakery();
+const appBakery = new Bakery();
 
 makeButtonIntoOven(ovenButton, donutCounterElement, appBakery);
