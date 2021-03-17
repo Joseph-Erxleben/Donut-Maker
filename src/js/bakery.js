@@ -48,6 +48,6 @@ class Bakery {
     }
 
     activateAutoClickers = () =>{
-        this._donuts += this._autoClicker;
+        this._donuts += this._autoClicker*(1.2**this._multiplier);
     }
 }
