@@ -33,9 +33,19 @@ const makeButtonIntoAutoClicker = (autoClicker, donutCounter, autoClickerCounter
     })
 }
 
-//run the functions
+//run the constants
 
 const appBakery = new Bakery();
 
 makeButtonIntoOven(ovenButton, donutCounterElement, appBakery);
 makeButtonIntoAutoClicker(autoClickerButton, donutCounterElement, autoClickerCounterElement, appBakery);
+
+//functions
+
+function UpdateHud(){
+    updateDonutCounter(donutCounterElement, appBakery);
+}
+
+let interval = setInterval(UpdateHud, 500);
+
+//run the functions

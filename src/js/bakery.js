@@ -4,6 +4,7 @@ class Bakery {
         this._autoClicker = 0;
         this._autoClickerCost = 100;
         this._multiplier = 0;
+        this.tickInterval = self.setInterval(this.activateAutoClickers, 1000);
     }
 
     bake () {
@@ -21,12 +22,16 @@ class Bakery {
             this._autoClickerCost *= 1.1;
         }
         else{
-            
+
         }
 
     }
 
     getAutoClicker() {
         return this._autoClicker;
+    }
+
+    activateAutoClickers = () =>{
+        this._donuts += this._autoClicker;
     }
 }
