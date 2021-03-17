@@ -1,4 +1,4 @@
-//index links
+//application links
 
 const donutCounterElement = document.querySelector('.donut__counter');
 const autoClickerCounterElement = document.querySelector('.autoClicker__counter');
@@ -55,7 +55,7 @@ makeButtonIntoDonut(donutButton, donutCounterElement, appBakery);
 makeButtonIntoAutoClicker(autoClickerButton, donutCounterElement, autoClickerCounterElement, appBakery);
 makeButtonIntoMultiplier(multiplierButton, donutCounterElement, multiplierCounterElement, appBakery);
 
-//functions
+//update ticker
 
 function UpdateHud(){
     updateDonutCounter(donutCounterElement, appBakery);
@@ -65,4 +65,21 @@ function UpdateHud(){
 
 let interval = setInterval(UpdateHud, 500);
 
-//run the functions
+//dropdown code
+
+function dropdownMenu() {
+    document.getElementById("myDropdown").classList.toggle("show");
+ }
+
+ window.onclick = function(event) {
+    if (!event.target.matches('.dropbtn')) {
+      var dropdowns = document.getElementsByClassName("dropdown-content");
+      var i;
+      for (i = 0; i < dropdowns.length; i++) {
+        var openDropdown = dropdowns[i];
+        if (openDropdown.classList.contains('show')) {
+          openDropdown.classList.remove('show');
+        }
+      }
+    }
+  }
