@@ -42,6 +42,7 @@ class Bakery {
             this._donuts -= this._multiplierCost;
             this._multiplierCost *= 1.1;
             this._donutsPerClick = this._multiplierValue ** this._multiplier;
+            this._donutsPerSecond = this._donutsPerClick * this._autoClicker;
         }
         else{
 

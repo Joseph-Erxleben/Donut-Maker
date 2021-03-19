@@ -12,7 +12,7 @@ const resetButton = document.querySelector('.reset__button');
 //updates
 
 const updateDonutCounter = function(donutCounterElement, bakery){
-    donutCounterElement.innerText = bakery.getDonut();
+    donutCounterElement.innerText = round(bakery.getDonut());
 } 
 
 const updateAutoClickerCounter = function(autoClickerCounterElement, bakery){
@@ -24,11 +24,11 @@ const updateMultiplierCounter = function(multiplierCounterElement, bakery){
 }
 
 const updateDonutButton = function(donutButtonElement, bakery){
-    donutButtonElement.innerText = "Bake " + bakery.getDonutPerClick() + " Donuts"
+    donutButtonElement.innerText = "Bake " + round(bakery.getDonutPerClick()) + " Donuts"
 }
 
 const updateMultiplierButton = function(multiplierButtonElement, bakery){
-    multiplierButtonElement.innerText = "Become a Better Baker | " + bakery.getMultiplierCost();
+    multiplierButtonElement.innerText = "Become a Better Baker | " + round(bakery.getMultiplierCost());
     if(bakery.getDonut() < bakery.getMultiplierCost()){
         multiplierButtonElement.style.background = "#A9A9A9";
     }
@@ -38,7 +38,7 @@ const updateMultiplierButton = function(multiplierButtonElement, bakery){
 }
 
 const updateAutoClickerButton = function(autoClickerButtonElement, bakery){
-    autoClickerButtonElement.innerText = "Hire a Baker | " + bakery.getAutoClickerCost();
+    autoClickerButtonElement.innerText = "Hire a Baker | " + round(bakery.getAutoClickerCost());
     if(bakery.getDonut() < bakery.getAutoClickerCost()){
         autoClickerButtonElement.style.background = "#A9A9A9";
     }
@@ -115,4 +115,8 @@ function dropdownMenu() {
         }
       }
     }
+  }
+
+  function round(number){
+    return Number.parseFloat(number).toFixed(2);
   }
