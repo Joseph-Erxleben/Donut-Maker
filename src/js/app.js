@@ -7,6 +7,7 @@ const multiplierCounterElement = document.querySelector('.multiplier__counter');
 const donutButton = document.querySelector('.donut__button');
 const autoClickerButton = document.querySelector('.autoClicker__button');
 const multiplierButton = document.querySelector('.multiplier__button');
+const resetButton = document.querySelector('.reset__button');
 
 //updates
 
@@ -51,26 +52,27 @@ const updateAutoClickerButton = function(autoClickerButtonElement, bakery){
 const makeButtonIntoDonut = (donutButton, donutCounter, bakery) =>{
     donutButton.addEventListener('click', ()=>{
         bakery.bake();
-        updateDonutCounter(donutCounter, bakery);
+        UpdateInterface();
     })
 }
 
 const makeButtonIntoAutoClicker = (autoClicker, donutCounter, autoClickerCounter, bakery) =>{
     autoClicker.addEventListener('click', ()=>{
         bakery.addAutoClicker();
-        updateDonutCounter(donutCounter, bakery);
-        updateAutoClickerCounter(autoClickerCounter, bakery);
-        updateAutoClickerButton(autoClicker, bakery);
+        UpdateInterface();
     })
 }
 
 const makeButtonIntoMultiplier = (multiplier, donutCounter, donutButtonElement, multiplierCounter, bakery) =>{
     multiplier.addEventListener('click', ()=>{
         bakery.addMultiplier();
-        updateDonutCounter(donutCounter, bakery);
-        updateDonutButton(donutButtonElement, bakery);
-        updateMultiplierCounter(multiplierCounter, bakery);
-        updateMultiplierButton(multiplier, bakery);
+        UpdateInterface();
+    })
+}
+
+const makeButtonIntoReset = (reset, bakery) =>{
+    reset.addEventListener('click', ()=>{
+        bakery.reset();
     })
 }
 
@@ -81,15 +83,17 @@ const appBakery = new Bakery();
 makeButtonIntoDonut(donutButton, donutCounterElement, appBakery);
 makeButtonIntoAutoClicker(autoClickerButton, donutCounterElement, autoClickerCounterElement, appBakery);
 makeButtonIntoMultiplier(multiplierButton, donutCounterElement, donutButton, multiplierCounterElement, appBakery);
+makeButtonIntoReset(resetButton, appBakery);
 
 //update ticker
 
 function UpdateInterface(){
+    updateDonutButton(donutButton, appBakery);
     updateDonutCounter(donutCounterElement, appBakery);
-    updateAutoClickerCounter(autoClickerCounterElement, appBakery);
-    updateMultiplierCounter(multiplierCounterElement, appBakery);
-    updateMultiplierButton(multiplierButton, appBakery);
     updateAutoClickerButton(autoClickerButton, appBakery);
+    updateAutoClickerCounter(autoClickerCounterElement, appBakery);
+    updateMultiplierButton(multiplierButton, appBakery);
+    updateMultiplierCounter(multiplierCounterElement, appBakery);
 }
 
 let interval = setInterval(UpdateInterface, 200);
