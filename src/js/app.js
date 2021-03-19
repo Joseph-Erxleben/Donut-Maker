@@ -27,7 +27,9 @@ const updateAutoClickerCounter = function(autoClickerCounterElement, bakery){
             autoClickerCounterElement.innerText = "You have hired " + bakery.getAutoClicker() + " baker, making " + round(bakery.getDonutPerSecond()) + " donut per second.";
         }
     }
-
+    else{
+        autoClickerCounterElement.innerText = "";
+    }
 } 
 
 const updateMultiplierCounter = function(multiplierCounterElement, bakery){
@@ -36,6 +38,9 @@ const updateMultiplierCounter = function(multiplierCounterElement, bakery){
     }
     else if(bakery.getMultiplier() > 0){
         multiplierCounterElement.innerText = "You have purchased " + bakery.getMultiplier() + " multiplier, increasing the donuts you bake by " + round(bakery.getDonutPerClick()-1)*100 + "%.";
+    }
+    else{
+        multiplierCounterElement.innerText = "";
     }
 }
 
