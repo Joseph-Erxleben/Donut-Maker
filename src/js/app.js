@@ -28,6 +28,12 @@ const updateDonutButton = function(donutButtonElement, bakery){
 
 const updateMultiplierButton = function(multiplierButtonElement, bakery){
     multiplierButtonElement.innerText = "Become a Better Baker | " + bakery.getMultiplierCost();
+    if(bakery.getDonut() < bakery.getMultiplierCost()){
+        multiplierButtonElement.style.background = "#A9A9A9";
+    }
+    else{
+        multiplierButtonElement.style.background = "#F5F5F5";
+    }
 }
 
 const updateAutoClickerButton = function(){
@@ -75,9 +81,10 @@ function UpdateInterface(){
     updateDonutCounter(donutCounterElement, appBakery);
     updateAutoClickerCounter(autoClickerCounterElement, appBakery);
     updateMultiplierCounter(multiplierCounterElement, appBakery);
+    updateMultiplierButton(multiplierButton, appBakery);
 }
 
-let interval = setInterval(UpdateInterface, 250);
+let interval = setInterval(UpdateInterface, 200);
 
 //dropdown code
 
