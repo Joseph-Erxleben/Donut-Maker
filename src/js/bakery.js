@@ -67,4 +67,15 @@ class Bakery {
     activateAutoClickers = () =>{  
         this._donuts += this._donutsPerSecond;
     }
+
+    reset(){
+        this._donuts = 0;
+        this._donutsPerClick = 1;
+        this._donutsPerSecond = 0;
+        this._autoClicker = 0;
+        this._autoClickerCost = 100;
+        this._multiplier = 0;
+        this._multiplierValue = 1.2;
+        this._multiplierCost = 10;
+    } 
 }
