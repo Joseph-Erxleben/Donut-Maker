@@ -36,8 +36,14 @@ const updateMultiplierButton = function(multiplierButtonElement, bakery){
     }
 }
 
-const updateAutoClickerButton = function(){
-
+const updateAutoClickerButton = function(autoClickerButtonElement, bakery){
+    autoClickerButtonElement.innerText = "Hire a Baker | " + bakery.getAutoClickerCost();
+    if(bakery.getDonut() < bakery.getAutoClickerCost()){
+        autoClickerButtonElement.style.background = "#A9A9A9";
+    }
+    else{
+        autoClickerButtonElement.style.background = "#F5F5F5";
+    }
 }
 
 //buttons
@@ -54,16 +60,17 @@ const makeButtonIntoAutoClicker = (autoClicker, donutCounter, autoClickerCounter
         bakery.addAutoClicker();
         updateDonutCounter(donutCounter, bakery);
         updateAutoClickerCounter(autoClickerCounter, bakery);
+        updateAutoClickerButton(autoClicker, bakery);
     })
 }
 
-const makeButtonIntoMultiplier = (multiplier, donutCounter, donutButtonElement, multiplierCounter, multiplierButtonElement, bakery) =>{
+const makeButtonIntoMultiplier = (multiplier, donutCounter, donutButtonElement, multiplierCounter, bakery) =>{
     multiplier.addEventListener('click', ()=>{
         bakery.addMultiplier();
         updateDonutCounter(donutCounter, bakery);
         updateDonutButton(donutButtonElement, bakery);
         updateMultiplierCounter(multiplierCounter, bakery);
-        updateMultiplierButton(multiplierButtonElement, bakery);
+        updateMultiplierButton(multiplier, bakery);
     })
 }
 
@@ -73,7 +80,7 @@ const appBakery = new Bakery();
 
 makeButtonIntoDonut(donutButton, donutCounterElement, appBakery);
 makeButtonIntoAutoClicker(autoClickerButton, donutCounterElement, autoClickerCounterElement, appBakery);
-makeButtonIntoMultiplier(multiplierButton, donutCounterElement, donutButton, multiplierCounterElement, multiplierButton, appBakery);
+makeButtonIntoMultiplier(multiplierButton, donutCounterElement, donutButton, multiplierCounterElement, appBakery);
 
 //update ticker
 
@@ -82,6 +89,7 @@ function UpdateInterface(){
     updateAutoClickerCounter(autoClickerCounterElement, appBakery);
     updateMultiplierCounter(multiplierCounterElement, appBakery);
     updateMultiplierButton(multiplierButton, appBakery);
+    updateAutoClickerButton(autoClickerButton, appBakery);
 }
 
 let interval = setInterval(UpdateInterface, 200);

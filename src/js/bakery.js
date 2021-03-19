@@ -51,6 +51,10 @@ class Bakery {
         return this._autoClicker;
     }
 
+    getAutoClickerCost(){
+        return this._autoClickerCost;
+    }
+
     getMultiplier(){
         return this._multiplier;
     }
