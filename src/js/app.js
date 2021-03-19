@@ -26,6 +26,14 @@ const updateDonutButton = function(donutButtonElement, bakery){
     donutButtonElement.innerText = "Bake " + bakery.getDonutPerClick() + " Donuts"
 }
 
+const updateMultiplierButton = function(multiplierButtonElement, bakery){
+    multiplierButtonElement.innerText = "Become a Better Baker | " + bakery.getMultiplierCost();
+}
+
+const updateAutoClickerButton = function(){
+
+}
+
 //buttons
 
 const makeButtonIntoDonut = (donutButton, donutCounter, bakery) =>{
@@ -43,12 +51,13 @@ const makeButtonIntoAutoClicker = (autoClicker, donutCounter, autoClickerCounter
     })
 }
 
-const makeButtonIntoMultiplier = (multiplier, donutCounter, donutButtonElement, multiplierCounter, bakery) =>{
+const makeButtonIntoMultiplier = (multiplier, donutCounter, donutButtonElement, multiplierCounter, multiplierButtonElement, bakery) =>{
     multiplier.addEventListener('click', ()=>{
         bakery.addMultiplier();
         updateDonutCounter(donutCounter, bakery);
         updateDonutButton(donutButtonElement, bakery);
         updateMultiplierCounter(multiplierCounter, bakery);
+        updateMultiplierButton(multiplierButtonElement, bakery);
     })
 }
 
@@ -58,7 +67,7 @@ const appBakery = new Bakery();
 
 makeButtonIntoDonut(donutButton, donutCounterElement, appBakery);
 makeButtonIntoAutoClicker(autoClickerButton, donutCounterElement, autoClickerCounterElement, appBakery);
-makeButtonIntoMultiplier(multiplierButton, donutCounterElement, donutButton, multiplierCounterElement, appBakery);
+makeButtonIntoMultiplier(multiplierButton, donutCounterElement, donutButton, multiplierCounterElement, multiplierButton, appBakery);
 
 //update ticker
 

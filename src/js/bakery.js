@@ -47,12 +47,16 @@ class Bakery {
         }
     }
 
-    getAutoClicker() {
+    getAutoClicker(){
         return this._autoClicker;
     }
 
-    getMultiplier() {
+    getMultiplier(){
         return this._multiplier;
+    }
+
+    getMultiplierCost(){
+        return this._multiplierCost;
     }
 
     activateAutoClickers = () =>{
