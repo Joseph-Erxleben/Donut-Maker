@@ -69,6 +69,10 @@ class Bakery {
         this._donuts += this._donutsPerSecond/10;
     }
 
+    getDonutPerSecond(){
+        return this._donutsPerSecond;
+    }
+
     reset(){
         this._donuts = 0;
         this._donutsPerClick = 1;
