@@ -22,6 +22,10 @@ const updateMultiplierCounter = function(multiplierCounterElement, bakery){
     multiplierCounterElement.innerText = bakery.getMultiplier();
 }
 
+const updateDonutButton = function(donutButtonElement, bakery){
+    donutButtonElement.innerText = "Bake " + bakery.getDonutPerClick() + " Donuts"
+}
+
 //buttons
 
 const makeButtonIntoDonut = (donutButton, donutCounter, bakery) =>{
@@ -39,10 +43,11 @@ const makeButtonIntoAutoClicker = (autoClicker, donutCounter, autoClickerCounter
     })
 }
 
-const makeButtonIntoMultiplier = (multiplier, donutCounter, multiplierCounter, bakery) =>{
+const makeButtonIntoMultiplier = (multiplier, donutCounter, donutButtonElement, multiplierCounter, bakery) =>{
     multiplier.addEventListener('click', ()=>{
         bakery.addMultiplier();
         updateDonutCounter(donutCounter, bakery);
+        updateDonutButton(donutButtonElement, bakery);
         updateMultiplierCounter(multiplierCounter, bakery);
     })
 }
@@ -53,17 +58,17 @@ const appBakery = new Bakery();
 
 makeButtonIntoDonut(donutButton, donutCounterElement, appBakery);
 makeButtonIntoAutoClicker(autoClickerButton, donutCounterElement, autoClickerCounterElement, appBakery);
-makeButtonIntoMultiplier(multiplierButton, donutCounterElement, multiplierCounterElement, appBakery);
+makeButtonIntoMultiplier(multiplierButton, donutCounterElement, donutButton, multiplierCounterElement, appBakery);
 
 //update ticker
 
-function UpdateHud(){
+function UpdateInterface(){
     updateDonutCounter(donutCounterElement, appBakery);
     updateAutoClickerCounter(autoClickerCounterElement, appBakery);
     updateMultiplierCounter(multiplierCounterElement, appBakery);
 }
 
-let interval = setInterval(UpdateHud, 500);
+let interval = setInterval(UpdateInterface, 250);
 
 //dropdown code
 
