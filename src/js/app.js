@@ -96,7 +96,7 @@ function UpdateInterface(){
     updateMultiplierCounter(multiplierCounterElement, appBakery);
 }
 
-let interval = setInterval(UpdateInterface, 200);
+let interval = setInterval(UpdateInterface, 100);
 
 //dropdown code
 

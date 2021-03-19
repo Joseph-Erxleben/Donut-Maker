@@ -8,7 +8,7 @@ class Bakery {
         this._multiplier = 0;
         this._multiplierValue = 1.2;
         this._multiplierCost = 10;
-        this.tickInterval = self.setInterval(this.activateAutoClickers, 1000);
+        this.tickInterval = self.setInterval(this.activateAutoClickers, 100);
     }
 
     bake () {
@@ -66,7 +66,7 @@ class Bakery {
     }
 
     activateAutoClickers = () =>{  
-        this._donuts += this._donutsPerSecond;
+        this._donuts += this._donutsPerSecond/10;
     }
 
     reset(){
