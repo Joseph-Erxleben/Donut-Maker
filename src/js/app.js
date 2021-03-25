@@ -34,7 +34,7 @@ const updateAutoClickerCounter = function(autoClickerCounterElement, bakery){
 
 const updateMultiplierCounter = function(multiplierCounterElement, bakery){
     if(bakery.getMultiplier() > 1){
-        multiplierCounterElement.innerText = "You have purchased " + bakery.getMultiplier() + " multipliers, increasing the donuts you bake by " + round(bakery.getDonutPerClick()-1)*100 + "%.";
+        multiplierCounterElement.innerText = "You have purchased " + bakery.getMultiplier() + " multipliers, increasing the donuts you bake by " + round((bakery.getDonutPerClick()-1)*100) + "%.";
     }
     else if(bakery.getMultiplier() > 0){
         multiplierCounterElement.innerText = "You have purchased " + bakery.getMultiplier() + " multiplier, increasing the donuts you bake by " + round(bakery.getDonutPerClick()-1)*100 + "%.";
