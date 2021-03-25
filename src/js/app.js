@@ -45,7 +45,9 @@ const updateMultiplierCounter = function(multiplierCounterElement, bakery){
 }
 
 const updateDonutButton = function(donutButtonElement, bakery){
-    donutButtonElement.innerText = "Bake " + round(bakery.getDonutPerClick()) + " Donuts"
+    if(bakery.getMultiplier()>0){
+        donutButtonElement.innerText = "Bake " + round(bakery.getDonutPerClick()) + " Donuts"
+    }
 }
 
 const updateMultiplierButton = function(multiplierButtonElement, bakery){
