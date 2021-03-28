@@ -12,23 +12,49 @@ const resetButton = document.querySelector('.reset__button');
 //updates
 
 const updateDonutCounter = function(donutCounterElement, bakery){
-    donutCounterElement.innerText = bakery.getDonut();
+    donutCounterElement.innerText = "You have " + round(bakery.getDonut()) + " Donuts.";
 } 
 
 const updateAutoClickerCounter = function(autoClickerCounterElement, bakery){
-    autoClickerCounterElement.innerText = bakery.getAutoClicker();
+    if(bakery.getAutoClicker() > 1){
+        autoClickerCounterElement.innerText = "You have hired " + bakery.getAutoClicker() + " bakers, making " + round(bakery.getDonutPerSecond()) + " donuts per second.";
+    }
+    else if(bakery.getAutoClicker() > 0){
+        if(bakery.getMultiplier() > 0){
+            autoClickerCounterElement.innerText = "You have hired " + bakery.getAutoClicker() + " baker, making " + round(bakery.getDonutPerSecond()) + " donuts per second.";
+        }
+        else{
+            autoClickerCounterElement.innerText = "You have hired " + bakery.getAutoClicker() + " baker, making " + round(bakery.getDonutPerSecond()) + " donut per second.";
+        }
+    }
+    else{
+        autoClickerCounterElement.innerText = "";
+    }
 } 
 
 const updateMultiplierCounter = function(multiplierCounterElement, bakery){
-    multiplierCounterElement.innerText = bakery.getMultiplier();
+    if(bakery.getMultiplier() > 1){
+        multiplierCounterElement.innerText = "You have purchased " + bakery.getMultiplier() + " multipliers, increasing the donuts you bake by " + round((bakery.getDonutPerClick()-1)*100) + "%.";
+    }
+    else if(bakery.getMultiplier() > 0){
+        multiplierCounterElement.innerText = "You have purchased " + bakery.getMultiplier() + " multiplier, increasing the donuts you bake by " + round(bakery.getDonutPerClick()-1)*100 + "%.";
+    }
+    else{
+        multiplierCounterElement.innerText = "";
+    }
 }
 
 const updateDonutButton = function(donutButtonElement, bakery){
-    donutButtonElement.innerText = "Bake " + bakery.getDonutPerClick() + " Donuts"
+    if(bakery.getMultiplier()>0){
+        donutButtonElement.innerText = "Bake " + round(bakery.getDonutPerClick()) + " Donuts"
+    }
+    else{
+        donutButtonElement.innerText = "Bake " + round(bakery.getDonutPerClick()) + " Donut"
+    }
 }
 
 const updateMultiplierButton = function(multiplierButtonElement, bakery){
-    multiplierButtonElement.innerText = "Become a Better Baker | " + bakery.getMultiplierCost();
+    multiplierButtonElement.innerText = "Become a Better Baker | " + round(bakery.getMultiplierCost());
     if(bakery.getDonut() < bakery.getMultiplierCost()){
         multiplierButtonElement.style.background = "#A9A9A9";
     }
@@ -38,7 +64,7 @@ const updateMultiplierButton = function(multiplierButtonElement, bakery){
 }
 
 const updateAutoClickerButton = function(autoClickerButtonElement, bakery){
-    autoClickerButtonElement.innerText = "Hire a Baker | " + bakery.getAutoClickerCost();
+    autoClickerButtonElement.innerText = "Hire a Baker | " + round(bakery.getAutoClickerCost());
     if(bakery.getDonut() < bakery.getAutoClickerCost()){
         autoClickerButtonElement.style.background = "#A9A9A9";
     }
@@ -96,7 +122,7 @@ function UpdateInterface(){
     updateMultiplierCounter(multiplierCounterElement, appBakery);
 }
 
-let interval = setInterval(UpdateInterface, 200);
+let interval = setInterval(UpdateInterface, 100);
 
 //dropdown code
 
@@ -115,4 +141,8 @@ function dropdownMenu() {
         }
       }
     }
+  }
+
+  function round(number){
+    return Number.parseFloat(number).toFixed(2);
   }
